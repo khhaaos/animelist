@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Animes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Studio</th>
+      <th>Genre</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @animes.each do |anime| %>
+      <tr>
+        <td><%= anime.titre %></td>
+        <td><%= anime.studio %></td>
+        <td><%= anime.genre %></td>
+        <td><%= anime.note %></td>
+        <td><%= link_to 'Show', anime %></td>
+        <td><%= link_to 'Edit', edit_anime_path(anime) %></td>
+        <td><%= link_to 'Destroy', anime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Anime', new_anime_path %>
